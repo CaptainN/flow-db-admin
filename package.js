@@ -57,7 +57,7 @@ Package.onUse(function(api) {
     'lib/client/html/admin_header.html',
     'lib/client/js/admin_layout.js',
     'lib/client/js/helpers.coffee',
-    'lib/client/js/templates.coffee',
+    'lib/client/js/templates.js',
     'lib/client/js/events.coffee',
     'lib/client/js/slim_scroll.js',
     'lib/client/js/autoForm.coffee',
