@@ -27,17 +27,18 @@ Package.onUse(function(api) {
     'reywood:publish-composite@1.4.2',
     'aldeed:collection2@2.5.0',
     'aldeed:autoform@5.7.1',
-    'aldeed:template-extension@3.4.3',
+    'aldeed:template-extension@4.0.0',
     'alanning:roles@1.2.13',
     'raix:handlebar-helpers@0.2.5',
     'momentjs:moment@2.10.6',
     'aldeed:tabular@1.4.0',
     'mfactory:admin-lte@0.0.2',
+    'ecmascript',
     'check'
     ],
     both);
 
-  api.use(['less@1.0.0 || 2.5.0','session','jquery','templating'],'client')
+  api.use(['less','session','jquery','templating'],'client')
 
   api.use(['email'],'server')
 
@@ -56,11 +57,11 @@ Package.onUse(function(api) {
     'lib/client/html/admin_sidebar.html',
     'lib/client/html/admin_header.html',
     'lib/client/js/admin_layout.js',
-    'lib/client/js/helpers.coffee',
+    'lib/client/js/helpers.js',
     'lib/client/js/templates.js',
-    'lib/client/js/events.coffee',
+    'lib/client/js/events.js',
     'lib/client/js/slim_scroll.js',
-    'lib/client/js/autoForm.coffee',
+    'lib/client/js/autoForm.js',
     'lib/client/css/admin-custom.less'
     ], 'client');
 
