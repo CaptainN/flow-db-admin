@@ -1,7 +1,7 @@
 Meteor Flow DB Admin
 ============
 
-A fork of sach:flow-db-admin to remove coffeescript and fix up some things
+A fork of sach:flow-db-admin to remove coffeescript and add sub-subscriptions to collections.
 
 A complete admin dashboard solution for meteor built off the [kadira:flow-router](https://github.com/kadirahq/flow-router), [kadira:blaze-layout](https://github.com/kadirahq/blaze-layout), [alanning:roles](https://github.com/alanning/meteor-roles/) and [aldeed:autoform](https://github.com/aldeed/meteor-autoform) packages and frontend from the open source admin dashboard template, [Admin LTE](https://github.com/almasaeed2010/AdminLTE).
 
@@ -157,6 +157,54 @@ Comments: {
 `showWidget` when set to false hides the corresponding widget from the dashboard.
 
 `color` styles the widget. See the [LTE Admin documentation](http://almsaeedstudio.com/preview/).
+
+##### Additional Subscriptions #####
+
+Sometimes you may need to subscribe to additional publications to populate fields in your admin form. This is similar to Meteor Admin's waitOn, which was provided by Iron Router, except it will not wait for the subscription.
+
+You may set up additional subscription for each collection (not specific routes) like so:
+
+```javascript
+AdminConfig = {
+  name: 'My Fancy Admin',
+  collections: {
+    MyCollection: {
+      label: 'My Collection',
+      color: 'yellow',
+      tableColumns: [
+        { label: 'Name', name: 'name' }
+      ],
+      subscriptions: [
+        { name: 'my_other_collection_pub', option: { some: 'filter' } },
+        { name: 'my_other_other_col_pub' }
+      ]
+    }
+  }
+}
+```
+
+Each subscription object must have a name property with the publication name to which you wish to subscribe. It may also have an options object which is sent along to the publication when the subcription is envoked.
+
+Once you are subscribed you may use the collection to populate an select box or whatever like so:
+
+```javascript
+MyCollection = new SimpleSchema({
+  'populatedProperty': {
+    label: 'Things from other collection',
+    type: String,
+    optional: true,
+    autoform: {
+      type: 'select',
+      options () {
+        const things = MyOtherCollection.find()
+        return things.map(thing => {
+          return {label: thing.name, value: thing._id}
+        })
+      }
+    }
+  }
+})
+```
 
 #### Users ####
 
