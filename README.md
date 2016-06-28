@@ -1,7 +1,10 @@
 Meteor Flow DB Admin
 ============
 
-A fork of sach:flow-db-admin to remove coffeescript and add sub-subscriptions to collections.
+A fork of sach:flow-db-admin has the following changes/features:
+ - convert coffeescript to ecmascript
+ - add sub-subscriptions to collections
+ - add user group system and super admin
 
 A complete admin dashboard solution for meteor built off the [kadira:flow-router](https://github.com/kadirahq/flow-router), [kadira:blaze-layout](https://github.com/kadirahq/blaze-layout), [alanning:roles](https://github.com/alanning/meteor-roles/) and [aldeed:autoform](https://github.com/aldeed/meteor-autoform) packages and frontend from the open source admin dashboard template, [Admin LTE](https://github.com/almasaeed2010/AdminLTE).
 
@@ -160,7 +163,7 @@ Comments: {
 
 ##### Additional Subscriptions #####
 
-Sometimes you may need to subscribe to additional publications to populate fields in your admin form. This is similar to Meteor Admin's waitOn, which was provided by Iron Router, except it will not wait for the subscription.
+Sometimes you need to subscribe to additional publications to populate fields in your admin forms. This is similar to Meteor Admin's waitOn, a feature provided by Iron Router. Our version is similar, except it will not wait for the subscription before rendering the form, and will instead populate the form fields reactively when the data loads.
 
 You may set up additional subscription for each collection (not specific routes) like so:
 
@@ -230,6 +233,10 @@ AdminConfig = {
   })
 }
 ```
+
+#### User Groups ####
+
+
 
 #### Custom Templates ####
 The default admin templates are autoForm instances based on the schemas assigned to the collections. If they don't do the job, you specify a custom template to use for each of the `new`,`edit` and `view` screens for each collection.

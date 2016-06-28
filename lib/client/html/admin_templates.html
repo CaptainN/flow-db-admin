@@ -107,10 +107,14 @@
 			<hr/>
 			{{/if}}
 
+			<p>Edit {{username}}</p>
 			<!--
 			<h4>User Roles</h4>
 			{{#each roles}}
-			<button class="btn btn-primary btn-xs btn-remove-role" role="{{this}}" user="{{admin_current_id}}">{{this}}</button>
+			<div>
+				<p>Super Admin</p>
+				<button class="btn btn-primary btn-xs btn-remove-role" role="{{this}}" user="{{admin_current_id}}">{{this}}</button>
+			</div>
 			{{/each}}
 			{{#each otherRoles}}
 			<button class="btn btn-default btn-xs btn-add-role" role="{{this}}" user="{{admin_current_id}}">{{this}}</button>
@@ -118,11 +122,17 @@
 			{{#if roles}}
 			<p style="margin-top:5px;">Click a role to toggle it.</p>
 			{{else}}
-			<p>User not in any roles. Click a role to add it to a user.</p>
+			<p style="margin-top:5px;">User not in any roles. Click a role to add it to a user.</p>
 			{{/if}}
 
+			<hr/> -->
+
+			<h4>Admin Groups</h4>
+			{{#each groups}}
+				<button class="btn btn-xs {{statusClass admin_current_id}}" group={{this.slug}} user={{admin_current_id}}>{{this.name}}</button>
+			{{/each}}
+
 			<hr/>
-			-->
 			<h4>Reset Password</h4>
 			{{#autoForm id="adminSendResetPasswordEmail" schema=AdminSchemas.sendResetPasswordEmail type="method" meteormethod="adminSendResetPasswordEmail"}}
 			<div class="form-group hidden">
