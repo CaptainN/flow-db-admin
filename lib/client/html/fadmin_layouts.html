@@ -1,6 +1,6 @@
 <template name="fAdminLayout">
   {{#if AdminConfig}}
-  {{#if isInRole 'admin'}}
+  {{#if isGroupAdmin}}
     <div class="admin-layout">
     {{#AdminLTE skin=admin_skin}}
   			{{> AdminHeader}}
