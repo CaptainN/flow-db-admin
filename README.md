@@ -246,6 +246,14 @@ AdminDashboard.Groups
 AdminDashboard.GroupSchema
 ```
 
+To add the super admin role to a user:
+
+```JavaScript
+import {Roles} from 'meteor/alanning:roles'
+var userId = Meteor.userId() // or another method to get the userId
+Roles.addUsersToRoles(userId, 'admin', 'super')
+```
+
 #### Custom Templates ####
 The default admin templates are autoForm instances based on the schemas assigned to the collections. If they don't do the job, you specify a custom template to use for each of the `new`,`edit` and `view` screens for each collection.
 ```javascript
