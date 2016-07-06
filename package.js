@@ -71,7 +71,8 @@ Package.onUse(function (api) {
 
   api.add_files([
     'lib/server/publish.js',
-    'lib/server/methods.js'
+    'lib/server/methods.js',
+    'lib/server/fixtures.js'
   ], 'server')
 
   // api.addAssets(['lib/client/css/admin-custom.css'],'client')
