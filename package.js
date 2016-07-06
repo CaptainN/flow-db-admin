@@ -27,6 +27,7 @@ Package.onUse(function (api) {
       'meteorhacks:unblock@1.1.0',
       'kadira:flow-router@2.6.2',
       'kadira:blaze-layout@2.1.0',
+      'kadira:dochead@1.5.0',
       'zimme:active-route@2.3.2',
       'reywood:publish-composite@1.4.2',
       'aldeed:collection2@2.5.0',
