@@ -236,7 +236,7 @@ AdminConfig = {
 
 #### User Groups ####
 
-
+This fork of flow-db-admin uses a groups system to allow you to partition access to various aspects of the admin. By default there is only one group 'super', for super admin. This group has access to the User and Groups edit and create functions in the admin, as well as to the 'adminGroups' and 'adminUsers' publications.
 
 #### Custom Templates ####
 The default admin templates are autoForm instances based on the schemas assigned to the collections. If they don't do the job, you specify a custom template to use for each of the `new`,`edit` and `view` screens for each collection.
